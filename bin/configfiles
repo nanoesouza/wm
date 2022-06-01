@@ -1,0 +1,82 @@
+#!/bin/bash
+myTerm=alacritty
+myEdit=nvim
+
+menu(){
+	printf "1. bspwm\n"
+	printf "2. Polybar\n"
+	printf "3. sxhkd\n"
+	printf "4. Dunst\n"
+	printf "5. Terminal\n"
+	printf "6. Rofi\n"
+	printf "7. Poly Modules\n"
+	printf "8. Poly UserModules\n"
+	printf "9. Poly Colors\n"
+	printf "10. Poly Launcher\n"
+	printf "11. Mopidy\n"
+	printf "12. Ncmpcpp\n"
+	printf "13. Neofetch\n"
+	printf "14. zshrc\n"
+	printf "15. Aliases\n"
+	printf "16. Nitrogen\n"
+}
+
+main(){
+    choice=$(menu | rofi -dmenu | cut -d. -f1)
+
+	case $choice in
+		1)
+			$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/bspwm/bspwmrc"
+            ;;
+		2)
+			$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/polybar/config.ini"
+            ;;
+		3)
+			$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/sxhkd/sxhkdrc"
+            ;;
+		4)
+           	$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/dunst/dunstrc"
+            ;;
+		5)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/alacritty/alacritty.yml"
+            ;;
+		6)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/rofi/config.rasi"
+            ;;
+		7)
+           	$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/polybar/modules.ini"
+            ;;
+		8)
+           	$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/polybar/user_modules.ini"
+            ;;
+		9)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/polybar/colors.ini"
+            ;;
+		10)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/polybar/launch.sh"
+            ;;
+		11)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/mopidy/mopidy.conf"
+            ;;
+		12)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.ncmpcpp/config"
+            ;;
+		13)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/neofetch/config.conf"
+            ;;
+		14)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.zshrc"
+            ;;
+		15)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/shell/aliases"
+            ;;
+		16)
+						nitrogen
+            ;;
+
+        esac
+}
+
+main
+
+
