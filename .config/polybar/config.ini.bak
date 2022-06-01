@@ -1,0 +1,136 @@
+;; Global WM Settings
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+;include-file = ~/.config/polybar/bars.ini
+include-file = ~/.config/polybar/colors.ini
+include-file = ~/.config/polybar/modules.ini
+include-file = ~/.config/polybar/user_modules.ini
+
+;; Bar Settings
+[colors]
+; General
+bar-background 		= ${color.bar-background}
+foreground 		= ${color.foreground}
+#mod-background		= ${color.mod-background}
+separator		= ${color.subtext0}
+
+; Round
+#round			= ${color.mod-background}
+
+; System
+#time 			= ${color.maroon}
+#powermenu 		= ${color.red}
+#wlan 			= ${color.green}
+#battery-discharging 	= ${color.red}
+#battery-charging 	= ${color.yellow}
+#battery-full 		= ${color.green}
+#cpu 			= ${color.peach}
+#memory			= ${color.mauve}
+#brightness 		= ${color.sky}
+#vpn			= ${color.red}
+
+; Updates
+updates 		= ${color.lavender}
+spotify 		= #27fb6b
+pacman 			= #e5c07b
+aur 			= #a2e362
+flatpak 		= #61afef
+
+; bspwm
+focused-bg		= ${color.blue}
+focused-fg		= ${color.blue}
+occupied-bg		= ${color.yellow}
+occupied-fg		= ${color.yellow}
+empty-bg		= ${color.mantle}
+empty-fg		= ${color.subtext0}
+
+; Powermenu
+power			= ${color.red}
+
+; Launcher
+#launch-open = ${color.sky}
+#launch-close = ${color.red}
+
+[bar/main]
+width = 100%
+height = 20
+padding-left = 0
+padding-right = 0
+
+background = ${colors.bar-background}
+foreground = ${colors.foreground}
+
+tray-position = right
+tray-padding = 1
+tray-background = ${colors.mod-background}
+tray-offset-x = -30%
+#tray-detached = true
+
+bottom = false
+#border-top-size = 1
+#border-bottom-size = 1
+#border-top-color = ${self.bar-background}
+#border-bottom-color = ${self.bar-background}
+
+line-size = 1
+override-redirect = true
+wm-restack = bspwm
+locale = pt_BR.UTF-8
+
+modules-left   = launch spotify cpu memory
+modules-center = bspwm
+modules-right  = battery backlight redshift wlan vpn-status pulseaudio time powermenu
+
+;font for text
+font-0 = JetBrainsMono Nerd Font:style=Bold:size=10;4
+font-1 = FontAwesome:style=Bold:pixelsize=13;4
+font-2 = JetBrainsMono Nerd Font:style=Bold:size=10;4
+font-3 = JetBrainsMono Nerd Font:style=Bold:pixelsize=15;4.5
+font-4 = JetBrainsMono Nerd Font:style=Bold:pixelsize=15;4
+
+[bar/bar2]
+monitor = HDMI1
+width = 100%
+height = 20
+
+background = ${colors.bar-background}
+foreground = ${colors.foreground}
+
+bottom = false
+#border-top-size = 1
+#border-bottom-size = 1
+#border-top-color = ${colors.bar-background}
+#border-bottom-color = ${colors.bar-background}
+
+line-size = 1
+override-redirect = true
+wm-restack = bspwm
+locale = pt_BR.UTF-8
+
+modules-left   = launch spotify cpu memory
+modules-center = bspwm
+modules-right  = battery redshift wlan vpn-status pulseaudio time powermenu
+
+;font for text
+font-0 = JetBrainsMono Nerd Font:style=Bold:size=10;4
+font-1 = FontAwesome:style=Bold:pixelsize=13;4
+font-2 = JetBrainsMono Nerd Font:style=Bold:size=10;4
+font-3 = JetBrainsMono Nerd Font:style=Bold:pixelsize=15;4.5
+font-4 = JetBrainsMono Nerd Font:style=Bold:pixelsize=15;4
+
+;; Application Settings
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+screenchange-reload = false
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+pseudo-transparency = false
+format-padding = 1
