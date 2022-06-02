@@ -1,12 +1,6 @@
 #!/bin/bash
 
-pamixer --list-sources | grep -i sc60 >/dev/null
-if [ $? == 0 ]; then
-	sink=$(pamixer --list-sources | grep \""SC60 for Lync Estéreo analógico" | awk {'print $1'})
-else
-	sink=$(pamixer --list-sources | grep "Tiger Lake-LP Smart Sound Technology Audio Controller Headphones Stereo Microphone" | awk \{'print $1'\})
-fi
-
+sink=$(pamixer --list-sources | grep -v "Monitor" | awk {'print $1'} | grep -v Sources)
 
 function send_notification() {
 	micvolume=$(pamixer --source $sink --get-volume)

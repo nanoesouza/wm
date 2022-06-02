@@ -5,14 +5,14 @@ set shiftwidth=2
 
 " plugins
 " download and install vim-plug if not installed
-if ! filereadable(system('echo -n "/home/adriano.elias/.config/nvim/autoload/plug.vim"'))
-	silent !mkdir -p /home/adriano.elias/.config/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > /home/adriano.elias/.config/nvim/autoload/plug.vim
+if ! filereadable(system('echo -n "/home/adriano/.config/nvim/autoload/plug.vim"'))
+	silent !mkdir -p /home/adriano/.config/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > /home/adriano/.config/nvim/autoload/plug.vim
 	autocmd VimEnter * PlugInstall
 endif
 
 " plugin list
-call plug#begin(system('echo -n "/home/adriano.elias/.config/nvim/plugged"'))
+call plug#begin(system('echo -n "/home/adriano/.config/nvim/plugged"'))
 
 Plug 'tiagovla/tokyodark.nvim'
 Plug 'sheerun/vim-polyglot'

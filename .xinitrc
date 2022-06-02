@@ -47,15 +47,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  done
  unset f
 fi
-sxhkd &
 picom -f &
 nitrogen --restore &
 dunst &
-setxkbmap br thinkpad &
-libinput-gestures-setup autostart start &
-rfkill unblock all &
+setxkbmap br abnt2 &
 xsetroot -cursor_name left_ptr &
-export XDG_CONFIG_HOME=/home/adriano.elias/.config
+export XDG_CONFIG_HOME=/home/adriano/.config
 
 
 exec bspwm

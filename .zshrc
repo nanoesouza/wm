@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/adriano.elias/.oh-my-zsh"
+export ZSH="/home/adriano/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -179,14 +179,13 @@ export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/home/adriano.elias/.local/bin/virtualenv
-source /home/adriano.elias/.local/bin/virtualenvwrapper.sh
-#alias pling='/home/adriano.elias/Documentos/AppImage/pling.AppImage & 2>/dev/null'
-export SPICETIFY_INSTALL="/home/adriano.elias/spicetify-cli"
+export VIRTUALENVWRAPPER_VIRTUALENV=/home/adriano/.local/bin/virtualenv
+#alias pling='/home/adriano/Documentos/AppImage/pling.AppImage & 2>/dev/null'
+export SPICETIFY_INSTALL="/home/adriano/spicetify-cli"
 export PATH="$HOME/.cargo/bin:$SPICETIFY_INSTALL:$HOME/.local/bin/:$HOME/bin:$HOME/AppImage/:$PATH"
 export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
 export BW_SESSION="fIMFe0MkgHYgJxyXX42SjDNRQMNXeV3kkTQLRml6TN4RG684zv3a531K343qd11XFP6YwO95ZB2vZnn0JzJUlQ=="
-export XDG_CONFIG_HOME=/home/adriano.elias/.config
+export XDG_CONFIG_HOME=/home/adriano/.config
 
 source ~/.config/shell/aliases
 
