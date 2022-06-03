@@ -44,6 +44,9 @@ XF86AudioMute
 XF86AudioMicMute
 	micvolume mute
 
+XF86Tools
+	micvolume mute
+
 super + XF86AudioLowerVolume
 	micvolume down
 
@@ -63,7 +66,7 @@ super + shift + s
 
 # file manager
 super + e
-	nautilus
+	thunar
 
 # program launcher
 super + d

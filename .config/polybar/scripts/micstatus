@@ -1,8 +1,8 @@
 #!/bin/bash
 
-pamixer --list-sources | grep -i sc60 >/dev/null
+pamixer --list-sources | grep -i kraken >/dev/null
 if [ $? == 0 ]; then
-	sink=$(pamixer --list-sources | grep \""SC60 for Lync Estéreo analógico" | awk {'print $1'})
+	sink=$(pamixer --list-sources | grep  Kraken | grep -v Monitor| awk {'print $1'})
 else
 	sink=$(pamixer --list-sources | grep "Tiger Lake-LP Smart Sound Technology Audio Controller Headphones Stereo Microphone" | awk \{'print $1'\})
 fi
