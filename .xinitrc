@@ -1,4 +1,6 @@
 #!/bin/sh
+wm=qtile
+export XDG_CONFIG_HOME=/home/adriano.elias/.config
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -8,15 +10,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +18,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -47,7 +33,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  done
  unset f
 fi
-sxhkd &
+
 picom -f &
 nitrogen --restore &
 dunst &
@@ -55,7 +41,10 @@ setxkbmap br thinkpad &
 libinput-gestures-setup autostart start &
 rfkill unblock all &
 xsetroot -cursor_name left_ptr &
-export XDG_CONFIG_HOME=/home/adriano.elias/.config
+~/.local/bin/dualmonitor 
 
-
-exec bspwm
+if [ $wm = "qtile" ]; then
+    qtile start
+else
+    exec bspwm
+fi

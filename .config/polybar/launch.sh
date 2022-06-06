@@ -4,6 +4,7 @@ HDMI=$(xrandr --query | grep 'HDMI1')
 
 # Terminate already running bar instances
 killall -q polybar
+while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
 echo "---" | tee -a /tmp/polybar.log
 polybar -q main -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar.log & disown
