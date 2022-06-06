@@ -1,3 +1,3 @@
 #!/bin/sh
 # Polybar
-/home/adriano.elias/.config/polybar/launch.sh
+$XDG_CONFIG_HOME/polybar/launch.sh
