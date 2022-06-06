@@ -4,5 +4,5 @@ if [[ $vpn == "" ]]; then
   vpn='down'
 fi
 
-printf " " && (echo -n $vpn)
+printf " " && (echo -n $vpn)
 

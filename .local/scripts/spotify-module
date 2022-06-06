@@ -1,7 +1,7 @@
 #!/bin/bash
 
 display_song() {
-  script_path="$HOME/.config/polybar/scripts/spotify_status.py"
+  script_path="$HOME/.local/scripts/spotify_status.py"
   
   status="python $script_path -p 'Playing,Paused' -f '{play_pause}'"
   song="python $script_path -t 150 -f '{artist}: {song}'"
