@@ -34,14 +34,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-picom -f --experimental-backends &
-nitrogen --restore &
-dunst &
-setxkbmap br thinkpad &
-libinput-gestures-setup autostart start &
-rfkill unblock all &
-xsetroot -cursor_name left_ptr &
-~/.local/bin/dualmonitor 
+#picom -f --experimental-backends &
+#nitrogen --restore &
+#dunst &
+#setxkbmap br thinkpad &
+#libinput-gestures-setup autostart start &
+#rfkill unblock all &
+#xsetroot -cursor_name left_ptr &
+#~/.local/bin/dualmonitor 
 
 if [ $wm = "qtile" ]; then
     qtile start

@@ -15,6 +15,7 @@ sup = "mod4"
 alt = "mod1"
 terminal = "alacritty"
 browser = "brave"
+files = "pcmanfm"
 
 @hook.subscribe.startup
 def start_once():
@@ -27,7 +28,7 @@ keys = [
     Key([sup], "q", lazy.spawn(browser), desc="Launches My Browser"),
     Key([sup, "shift"], "p", lazy.spawn("bwmenu"), desc="Bitwarden Rofi Menu"),
     Key([alt], "Tab", lazy.spawn("rofi -show window"), desc= "Alternate between windows"),
-    Key([sup], "e", lazy.spawn("thunar"), desc="File Explorer"),
+    Key([sup], "e", lazy.spawn(files), desc="File Explorer"),
 
     # Rofi Menus
     KeyChord([sup], "d", [
@@ -75,6 +76,9 @@ keys = [
     Key([sup, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([sup, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([sup], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
+    Key([sup, "shift"], "f", lazy.layout.flip(), desc="Flip layout"),
+    Key([sup], "o", lazy.layout.grow()),
+    Key([sup], "i", lazy.layout.shrink()),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -98,8 +102,8 @@ layouts = [
     layout.MonadTall(**layout_theme),
     layout.Columns(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Stack(num_stacks=2),
-    #layout.RatioTile(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    #layout.Stack(num_stacks=2),
     layout.Floating(**layout_theme)
 ]
 
