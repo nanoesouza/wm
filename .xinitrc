@@ -1,5 +1,5 @@
 #!/bin/sh
-wm=qtile
+wm=awesome
 export XDG_CONFIG_HOME=/home/adriano.elias/.config
 
 userresources=$HOME/.Xresources
@@ -45,6 +45,8 @@ fi
 
 if [ $wm = "qtile" ]; then
     qtile start
-else
+elif [ $wm = "awesome" ]; then
+    exec awesome
+elif [ $wm = "bspwm" ]; then
     exec bspwm
 fi
