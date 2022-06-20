@@ -4,4 +4,3 @@ function fish_greeting
 end
 end
 source $HOME/.config/fish/aliases
-

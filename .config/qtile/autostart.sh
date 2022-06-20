@@ -1,6 +1,6 @@
 #!/bin/sh
 
-killall picom ; picom -f --experimental-backends &
+killall picom ; picom -f --experimental-backends --config $XDG_CONFIG_HOME/picom/picom.conf &
 killall nitrogen ; nitrogen --restore &
 killall dunst ; dunst &
 setxkbmap br thinkpad &
@@ -10,4 +10,4 @@ xsetroot -cursor_name left_ptr &
 ~/.local/bin/dualmonitor
 
 # Polybar
-$XDG_CONFIG_HOME/polybar/launch.sh
+#$XDG_CONFIG_HOME/polybar/launch.sh
