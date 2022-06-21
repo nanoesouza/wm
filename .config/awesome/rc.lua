@@ -15,8 +15,11 @@ local beautiful     = require("beautiful")
 local naughty       = require("naughty")
 naughty.config.defaults['icon_size'] = 100
 
-local lain          = require("lain")
-local freedesktop   = require("freedesktop")
+-- OLD WIDGETS  
+--local lain          = require("lain")
+--local freedesktop   = require("freedesktop")
+--vicious
+--awesome-wm-widgets
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -141,15 +144,15 @@ awful.util.tasklist_buttons = my_table.join(
     awful.button({ }, 5, function () awful.client.focus.byidx(-1) end)
 )
 
-lain.layout.termfair.nmaster           = 3
-lain.layout.termfair.ncol              = 1
-lain.layout.termfair.center.nmaster    = 3
-lain.layout.termfair.center.ncol       = 1
-lain.layout.cascade.tile.offset_x      = 2
-lain.layout.cascade.tile.offset_y      = 32
-lain.layout.cascade.tile.extra_padding = 5
-lain.layout.cascade.tile.nmaster       = 5
-lain.layout.cascade.tile.ncol          = 2
+--lain.layout.termfair.nmaster           = 3
+--lain.layout.termfair.ncol              = 1
+--lain.layout.termfair.center.nmaster    = 3
+--lain.layout.termfair.center.ncol       = 1
+--lain.layout.cascade.tile.offset_x      = 2
+--lain.layout.cascade.tile.offset_y      = 32
+--lain.layout.cascade.tile.extra_padding = 5
+--lain.layout.cascade.tile.nmaster       = 5
+--lain.layout.cascade.tile.ncol          = 2
 
 beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/themes/%s/theme.lua", chosen_theme))
 
@@ -162,22 +165,22 @@ local myawesomemenu = {
     { "restart", awesome.restart },
 }
 
-awful.util.mymainmenu = freedesktop.menu.build({
-    icon_size = beautiful.menu_height or 16,
-    before = {
-        { "Awesome", myawesomemenu, beautiful.awesome_icon },
-        --{ "Atom", "atom" },
-        -- other triads can be put here
-    },
-    after = {
-        { "Terminal", terminal },
-        { "Log out", function() awesome.quit() end },
-        { "Sleep", "systemctl suspend" },
-        { "Restart", "systemctl reboot" },
-        { "Exit", "systemctl poweroff" },
-        -- other triads can be put here
-    }
-})
+--awful.util.mymainmenu = freedesktop.menu.build({
+--    icon_size = beautiful.menu_height or 16,
+--    before = {
+--        { "Awesome", myawesomemenu, beautiful.awesome_icon },
+--        --{ "Atom", "atom" },
+--        -- other triads can be put here
+--    },
+--    after = {
+--        { "Terminal", terminal },
+--        { "Log out", function() awesome.quit() end },
+--        { "Sleep", "systemctl suspend" },
+--        { "Restart", "systemctl reboot" },
+--        { "Exit", "systemctl poweroff" },
+--        -- other triads can be put here
+--    }
+--})
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", function(s)

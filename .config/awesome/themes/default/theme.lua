@@ -3,7 +3,7 @@
 ---------------------------
 
 local gears = require("gears")
-local lain  = require("lain")
+--local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 local naughty = require("naughty")
@@ -171,7 +171,7 @@ wdg_bright:buttons(gears.table.join(
 ))
 
 -- Spotify Widget
-local wdg_spotify = require("awesome-wm-widgets.spotify-widget.spotify"){
+local wdg_spotify = require("widgets.spotify.spotify"){
     font = theme.font,
     play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
     pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg',
@@ -192,7 +192,7 @@ wdg_wifi:buttons(gears.table.join(
 ))
 
 -- Battery Widget
-local wdg_battery = require("battery-widget"){
+local wdg_battery = require("widgets.battery"){
     ac = "AC",
     adapter = "BAT0",
     ac_prefix = " ",

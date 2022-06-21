@@ -54,6 +54,6 @@ alias gdiff='git diff | bat'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Fish Shell
-alias mkvirtualenv='vf new'
-alias workon='vf activate'
-alias deactivate='vf deactivate'
+#alias mkvirtualenv='vf new'
+#alias workon='vf activate'
+#alias deactivate='vf deactivate'
