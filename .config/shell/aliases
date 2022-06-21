@@ -25,6 +25,7 @@ alias search='pacman -Ss'
 alias upgrade='sudo pacman -Syyu'
 alias remove='sudo pacman -Rs'
 alias autoremove='sudo pacman -Rcs $(pacman -Qdtq)'
+alias s='kitty +kitten ssh'
 
 alias ainstall='yay -Syyu'
 alias asearch='yay -Ss'

@@ -67,7 +67,7 @@ local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.ge
 beautiful.init(theme_path)
 
 -- Variable definitions
-local terminal = "alacritty"
+    local terminal = "alacritty"
 local browser = "brave"
 local files = "pcmanfm"
 local editor = os.getenv("EDITOR") or "nvim"
@@ -581,8 +581,8 @@ beautiful.notification_bg = '#16161e'
 beautiful.notification_fg = '#acb0d0'
 
 -- Autostart Applications
-awful.spawn.with_shell("picom -f --experimental-backends")
-awful.spawn.with_shell("dunst")
+awful.spawn.with_shell("killall picom ; picom -f --experimental-backends")
+awful.spawn.with_shell("killall dunst ; dunst")
 awful.spawn.with_shell("setxkbmap br thinkpad")
 awful.spawn.with_shell("libinput-gestures-setup autostart start")
 awful.spawn.with_shell("rfkill unblock all")
