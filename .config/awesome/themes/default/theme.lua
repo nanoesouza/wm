@@ -31,21 +31,24 @@ theme.bg_focus      = "#20212CD9"
 theme.bg_urgent     = "#ff7a93"
 theme.bg_minimize   = "#DDDADAFF"
 theme.bg_systray    = theme.bg_normal
-theme.fg_normal     = "#E8E3E3"
-theme.fg_focus      = "#acb0d0"
+theme.fg_normal     = "#acb0d0"
+theme.fg_focus      = "#444b6a"
 theme.fg_urgent     = "#E8E3E3"
 theme.fg_minimize   = "#acb0d0"
-theme.taglist_fg_focus = "#E8E3E3"
-theme.taglist_fg_occupied = "#8D8E92"
-theme.taglist_fg_empty    = "#585353"
+theme.taglist_fg_focus = "#cdd6f4"
+theme.taglist_fg_occupied = "#545b7a"
+theme.taglist_fg_empty    = "#32344a"
 theme.taglist_spacing     = 5
 theme.useless_gap   = 5
 theme.border_width  = 2
 theme.menu_height = 20
 theme.menu_width  = 140
-theme.border_normal = "#B66467"
-theme.border_focus  = "#f38ba8"
-theme.border_marked = "#ff7a93"
+theme.border_normal = "#32344a"
+theme.border_focus  = "#444b6a"
+theme.border_marked = "#23244a"
+--theme.border_normal = "#B66467"
+--theme.border_focus  = "#f38ba8"
+--theme.border_marked = "#ff7a93"
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
 theme.layout_fairv = themes_path.."default/layouts/fairvw.png"
 theme.layout_floating  = themes_path.."default/layouts/floatingw.png"
@@ -86,11 +89,11 @@ theme.wallpaper = "/home/adriano.elias/images/walls/catppucin-walls/landscapes/s
 theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
 
 -- Separator
-local separator = wibox.widget.textbox("  ")
+local separator = wibox.widget.textbox(" ")
 local separator1 = wibox.widget.textbox("|")
 
 -- Clock Widget
-local wdg_clock = wibox.widget.textclock()
+local wdg_clock = wibox.widget.textclock(' %a %d %b   %H:%M ')
 
 -- Systray Widget
 local wdg_systray = wibox.widget.systray()
@@ -203,9 +206,9 @@ local wdg_battery = require("widgets.battery"){
         {100, "  "}
     },
     percent_colors = {
-        { 25, "red"   },
-        { 50, "#E8E3E3"},
-        {999, "#E8E3E3" },
+        { 25, "#b66467"   },
+        { 50, "#acb0d0"},
+        {999, "#acb0d0" },
     },
     listen = true,
     timeout = 10,
@@ -253,29 +256,25 @@ function theme.at_screen_connect(s)
                 separator,
                 wdg_spotify,
             },
-            { -- Center Widgets
-                layout = wibox.container.place,
-                valign = "center",
-                halign = "center",
-            },
+            nil,
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                spacing = 5,
+                spacing = 20,
                 wdg_bright,
-                separator1,
                 wdg_vpn,
-                separator1,
                 wdg_battery,
-                separator1,
                 wdg_wifi,
-                separator1,
                 wdg_mic,
-                separator1,
                 wdg_vol,
-                separator1,
-                wdg_clock,
+                --separator,
             }
         },
+        {
+            wdg_clock,
+            layout = wibox.container.place,
+            valign = "center",
+            halign = "center",
+        }
     }
 end
 return theme

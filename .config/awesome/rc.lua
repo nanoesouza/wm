@@ -200,7 +200,7 @@ awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) 
 
 -- Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
+    --awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
@@ -301,6 +301,8 @@ globalkeys = gears.table.join(
               {description = "bitwarden menu", group = "rofi"}),
     awful.key({ alt },            "Tab",     function () awful.util.spawn("rofi -show window") end,
               {description = "alternate between windows", group = "rofi"}),
+    awful.key({ modkey, "Control" },            "s",     function () awful.util.spawn("rofi -show ssh") end,
+              {description = "connect to SSH host", group = "rofi"}),
 
     -- Media and Volume
     awful.key({}, "XF86AudioRaiseVolume",function () awful.util.spawn("changevolume up") end,
@@ -472,45 +474,52 @@ awful.rules.rules = {
      }
     },
 
+    -- Picture in Picture stays Tiled and OnTop
+    { rule = { name = "Picture-in-picture"},
+        properties = { 
+            floating = true,
+            ontop = true,
+        }
+    },
+
     -- Floating clients.
     { rule_any = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
-          "pinentry",
         },
         class = {
           "Arandr",
-          "Blueman-manager",
+          "Blueberry",
+          "Galculator",
+          "Gnome-font-viewer",
           "Gpick",
+          "Imagewriter",
+          "Font-manager",
           "Kruler",
           "MessageWin",  -- kalarm.
+          "Oblogout",
+          "Peek",
+          "Skype",
+          "System-config-printer.py",
           "Sxiv",
-          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+          "Unetbootin.elf",
           "Wpa_gui",
+          "pinentry",
           "veromix",
           "xtightvncviewer"},
 
-        -- Note that the name property shown in xprop might be set slightly after creation of the client
-        -- and the name shown there might not match defined rules here.
         name = {
           "Event Tester",  -- xev.
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
-          "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+          "Preferences",
+          "setup",
         }
       }, properties = { floating = true }},
 
-    -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = false }
-    },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -577,7 +586,7 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Appearance Stuff
-beautiful.useless_gap = 10
+beautiful.useless_gap = 5
 beautiful.notification_opacity = '100'
 beautiful.notification_icon_size = 80
 beautiful.notification_bg = '#16161e'
@@ -592,3 +601,5 @@ awful.spawn.with_shell("rfkill unblock all")
 awful.spawn.with_shell("xsetroot -cursor_name left_ptr")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("~/.local/bin/dualmonitor")
+awful.spawn.with_shell("❯ xinput --set-prop 'pointer:USB Gaming Mouse' 'libinput Accel Profile Enabled' 0 0 &")
+awful.spawn.with_shell("xinput --set-prop 'pointer:USB Gaming Mouse' 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1.50 &")

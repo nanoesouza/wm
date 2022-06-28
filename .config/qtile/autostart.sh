@@ -10,4 +10,4 @@ xsetroot -cursor_name left_ptr &
 ~/.local/bin/dualmonitor
 
 # Polybar
-#$XDG_CONFIG_HOME/polybar/launch.sh
+$XDG_CONFIG_HOME/polybar/launch.sh

@@ -17,7 +17,7 @@ call plug#begin(system('echo -n "/home/adriano.elias/.config/nvim/plugged"'))
 Plug 'tiagovla/tokyodark.nvim'
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'

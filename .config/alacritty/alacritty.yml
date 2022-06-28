@@ -5,7 +5,7 @@ window:
   padding:
     x: 4
     y: 4
-  opacity: 0.7
+  opacity: 0.5
 
 scrolling:
   history: 100000
@@ -184,7 +184,3 @@ live_config_reload: true
 
 key_bindings:
   - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
-import:
-  - ~/.config/alacritty/paradise.yml
-import:
-  - ~/.config/alacritty/paradise.yml

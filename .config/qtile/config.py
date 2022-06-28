@@ -91,11 +91,48 @@ for i in groups:
         ]
     )
 
-layout_theme = {"border_width": 3,
-                "margin": 10,
-                "border_focus": "#787c99",
-                "border_normal": "#32344a",
-                "border_focus_stack": "#787c99"
+#COLORING
+
+nano = {
+    "Background": "#151515",
+    "Foreground": "#e8e3e3",
+    "Shade1": "#dddada",
+    "Shade2": "#aaa0a0",
+    "Shade3": "#8d8e92",
+    "Shade4": "#585353",
+    "Shade5": "#f38ba8",
+    "Shade6": "#ff7a93",
+    "Shade7": "#b66467",
+}
+
+#colors = [["#16161e", "#16161e"],
+#          ["#20212C", "#20212C"],
+#          ["#acb0d0", "#acb0d0"],
+#          ["#ff7a93", "#ff7a93"],
+#          ["#CACACE", "#CACACE"],
+#          ["#787c99", "#787c99"],
+#          ["#444b6a", "#444b6a"],
+#          ["#32344a", "#32344a"],
+#          ["#cdd6f4", "#cdd6f4"],
+#          ["#bac2de", "#bac2de"]]
+
+tokyo = {
+    "Background": "#16161e",
+    "Foreground": "#acb0d0",
+    "Shade1": "#cdd6f4",
+    "Shade2": "#444b6a",
+    "Shade3": "#32344a",
+    "Shade4": "#20212c",
+    "Shade5": "#444b6a",
+    "Shade6": "#32344a",
+    "Shade7": "#20212c",
+}
+
+layout_theme = {"border_width": 2,
+                "margin": 5,
+                "border_focus": tokyo["Shade5"],
+                "border_normal": tokyo["Shade7"],
+                "border_focus_stack": tokyo["Shade6"]
                 }
 
 layouts = [
@@ -107,124 +144,115 @@ layouts = [
     layout.Floating(**layout_theme)
 ]
 
-#COLORING
-colors = [["#16161e", "#16161e"],
-          ["#20212C", "#20212C"],
-          ["#acb0d0", "#acb0d0"],
-          ["#ff7a93", "#ff7a93"],
-          ["#CACACE", "#CACACE"],
-          ["#787c99", "#787c99"],
-          ["#444b6a", "#444b6a"],
-          ["#32344a", "#32344a"],
-          ["#cdd6f4", "#cdd6f4"],
-          ["#bac2de", "#bac2de"]]
-
 #WIDGETS / BAR
 widget_defaults = dict(
     font="JetBrains Mono Nerd Font ExtraBold",
     fontsize=12,
     padding=10,
-    background=colors[0],
-    foreground=colors[2],
+    background=tokyo["Background"],
+    foreground=tokyo["Foreground"],
 )
 extension_defaults = widget_defaults.copy()
 
-#screens = [Screen(top=bar.Gap(20)), Screen(top=bar.Gap(20))]
+screens = [Screen
+           (top=bar.Gap(20)),
+           Screen(top=bar.Gap(20))
+           ]
 
 
-def init_widgets_list():
-    widgets_list = [
-        widget.CurrentLayoutIcon(),
-        widget.GroupBox(
-            padding = 3,
-        ),
-        widget.Spacer(),
-        widget.Clock(
-            format = " %a, %d %b |  %H:%M"
-        ),
-        widget.Spacer(),
-        widget.TextBox(
-            text = "",
-            padding=3,
-            mouse_callbacks = {
-                'Button1': lambda: qtile.cmd_spawn("redshift -P -O 4000"),
-                'Button3': lambda: qtile.cmd_spawn("redshift -x"),
-            },
-        ),
-        widget.Backlight(
-            backlight_name = "intel_backlight",
-            padding=3,
-            format = "{percent:2.0%}",
-        ),
-#        widget.Sep(),
-        widget.GenPollText(
-            update_interval = 5,
-            func = lambda: subprocess.check_output(home + "/.local/bin/vpn_status").decode("utf-8"),
-            mouse_callbacks = {
-                'Button1': lambda: qtile.cmd_spawn("sudo openvpn --bind --cd "+ home + "/docs/VPN' --config 'MGA.ovpn'"),
-                'Button3': lambda: qtile.cmd_spawn("sudo killall openvpn"), 
-            },
-        ),
-#       widget.Sep(),
-        widget.Wlan(
-            format = "  {essid}",
-            interface = "wlan0",
-            mouse_callbacks = {
-                'Button1': lambda: qtile.cmd_spawn("wifimenu"),
-            },
-        ),
-#        widget.Sep(),
-        widget.Battery(
-            format = "{char} {percent:2.0%}",
-            full_char = ' ',
-            discharge_char = ' ',
-            charge_char = '',
-            emtpy_char = ' ',
-            unknown_char = ' ',
-            update_interval = '1',
-        ),
-#        widget.Sep(),
-        widget.GenPollText(
-            update_interval = 3,
-            func = lambda: subprocess.check_output(home + "/.local/scripts/micstatus").decode("utf-8"),
-            mouse_callbacks = {
-                'Button1': lambda: qtile.cmd_spawn("micvolume mute"),
-                'Button3': lambda: qtile.cmd_spawn("pavucontrol"), 
-            },
-        ),
-        widget.Volume(
-            emoji = "True",
-            padding=3,
-        ),
-        widget.Volume(
-            padding=3,
-            mouse_callbacks = {
-                'Button3': lambda: qtile.cmd_spawn("pavucontrol"),
-            },
-            volume_up_command = 'changevolume up',
-            volume_down_command = 'changevolume down',
-            mute_command = 'changevolume mute',
-        ),
-    ]
-
-    return widgets_list
-def init_widgets_screen1():
-    widgets_screen1 = init_widgets_list()
-    return widgets_screen1
-    
-def init_widgets_screen2():
-    widgets_screen2 = init_widgets_list()
-    return widgets_screen2 
-
-def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.6, size=20)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=0.6, size=20))]
-
-if __name__ in ["config", "__main__"]:
-    screens = init_screens()
-    widgets_list = init_widgets_list()
-    widgets_screen1 = init_widgets_screen1()
-    widgets_screen2 = init_widgets_screen2()
+#def init_widgets_list():
+#    widgets_list = [
+#        widget.CurrentLayoutIcon(),
+#        widget.GroupBox(
+#            padding = 3,
+#        ),
+#        widget.Spacer(),
+#        widget.Clock(
+#            format = " %a, %d %b |  %H:%M"
+#        ),
+#        widget.Spacer(),
+#        widget.TextBox(
+#            text = "",
+#            padding=3,
+#            mouse_callbacks = {
+#                'Button1': lambda: qtile.cmd_spawn("redshift -P -O 4000"),
+#                'Button3': lambda: qtile.cmd_spawn("redshift -x"),
+#            },
+#        ),
+#        widget.Backlight(
+#            backlight_name = "intel_backlight",
+#            padding=3,
+#            format = "{percent:2.0%}",
+#        ),
+##        widget.Sep(),
+#        widget.GenPollText(
+#            update_interval = 5,
+#            func = lambda: subprocess.check_output(home + "/.local/bin/vpn_status").decode("utf-8"),
+#            mouse_callbacks = {
+#                'Button1': lambda: qtile.cmd_spawn("sudo openvpn --bind --cd "+ home + "/docs/VPN' --config 'MGA.ovpn'"),
+#                'Button3': lambda: qtile.cmd_spawn("sudo killall openvpn"), 
+#            },
+#        ),
+##       widget.Sep(),
+#        widget.Wlan(
+#            format = "  {essid}",
+#            interface = "wlan0",
+#            mouse_callbacks = {
+#                'Button1': lambda: qtile.cmd_spawn("wifimenu"),
+#            },
+#        ),
+##        widget.Sep(),
+#        widget.Battery(
+#            format = "{char} {percent:2.0%}",
+#            full_char = ' ',
+#            discharge_char = ' ',
+#            charge_char = '',
+#            emtpy_char = ' ',
+#            unknown_char = ' ',
+#            update_interval = '1',
+#        ),
+##        widget.Sep(),
+#        widget.GenPollText(
+#            update_interval = 3,
+#            func = lambda: subprocess.check_output(home + "/.local/scripts/micstatus").decode("utf-8"),
+#            mouse_callbacks = {
+#                'Button1': lambda: qtile.cmd_spawn("micvolume mute"),
+#                'Button3': lambda: qtile.cmd_spawn("pavucontrol"), 
+#            },
+#        ),
+#        widget.Volume(
+#            emoji = "True",
+#            padding=3,
+#        ),
+#        widget.Volume(
+#            padding=3,
+#            mouse_callbacks = {
+#                'Button3': lambda: qtile.cmd_spawn("pavucontrol"),
+#            },
+#            volume_up_command = 'changevolume up',
+#            volume_down_command = 'changevolume down',
+#            mute_command = 'changevolume mute',
+#        ),
+#    ]
+#
+#    return widgets_list
+#def init_widgets_screen1():
+#    widgets_screen1 = init_widgets_list()
+#    return widgets_screen1
+#    
+#def init_widgets_screen2():
+#    widgets_screen2 = init_widgets_list()
+#    return widgets_screen2 
+#
+#def init_screens():
+#    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.8, size=20)),
+#            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=0.8, size=20))]
+#
+#if __name__ in ["config", "__main__"]:
+#    screens = init_screens()
+#    widgets_list = init_widgets_list()
+#    widgets_screen1 = init_widgets_screen1()
+#    widgets_screen2 = init_widgets_screen2()
 
 mouse = [
     Drag([sup], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
@@ -234,7 +262,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = False
+follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(

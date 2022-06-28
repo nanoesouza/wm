@@ -1,14 +1,11 @@
 #! /bin/sh
-# AutoStart
-sxhkd &
-
 # Configs
 bspc monitor eDP1 -d 1 2 3 4 5
 bspc monitor HDMI1 -d 6 7 8 9 10
 
 bspc config border_width         1
 bspc config window_gap           5
-bspc config bottom_padding	20
+bspc config top_padding	20
 
 bspc config automatic_scheme    spiral
 
@@ -26,3 +23,13 @@ fi
 # Polybar
 $HOME/.config/polybar/launch.sh
 
+# AutoStart
+sxhkd &
+killall picom ; picom -f --experimental-backends &
+killall dunst ; dunst &
+setxkbmap br thinkpad &
+libinput-gestures-setup autostart start &
+rfkill unblock all &
+xsetroot -cursor_name left_ptr &
+nitrogen --restore &
+~/.local/bin/dualmonitor &
