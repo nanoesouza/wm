@@ -179,8 +179,8 @@ selection:
 
 live_config_reload: true
 
-#shell:
-#  program: /bin/fish
+shell:
+  program: /bin/fish
 
 key_bindings:
   - { key: Return, mods: Super|Shift, action: SpawnNewInstance }

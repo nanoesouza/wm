@@ -71,7 +71,7 @@ beautiful.init(theme_path)
 
 -- Variable definitions
     local terminal = "alacritty"
-local browser = "brave"
+local browser = "firefox"
 local files = "pcmanfm"
 local editor = os.getenv("EDITOR") or "nvim"
 local editor_cmd = terminal .. " -e " .. editor
@@ -331,7 +331,7 @@ globalkeys = gears.table.join(
               {description = "run browser", group = "applications"}),
     awful.key({ modkey },            "e",     function () awful.util.spawn(files) end,
               {description = "run file manager", group = "applications"}),
-    awful.key({ modkey }, "x",                function () awful.util.spawn("betterlockscreen") end,
+    awful.key({ modkey }, "x",                function () awful.util.spawn("betterlockscreen -l") end,
               {description = "lock screen", group = "media"}),
 
     awful.key({ modkey, "Shift" }, "x",

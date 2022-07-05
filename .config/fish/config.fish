@@ -4,4 +4,5 @@ function fish_greeting
 end
 end
 source $HOME/.config/fish/aliases
-set ANSIBLE_VAULT_PASSWORD_FILE ~/.config/ansible/vault_pass
+set -gx ANSIBLE_VAULT_PASSWORD_FILE ~/.config/ansible/vault_pass
+set -gx EDITOR emacs
