@@ -26,19 +26,19 @@ local theme = {}
 
 theme.font          = "JetBrains Mono Nerd Font ExtraBold 9"
 
-theme.bg_normal     = "#151515F2"
+theme.bg_normal     = "#2e3440F2"
 theme.bg_focus      = "#20212CF2"
 theme.bg_urgent     = "#ff7a93"
 theme.bg_minimize   = "#DDDADAFF"
 theme.bg_systray    = theme.bg_normal
-theme.fg_normal     = "#d0acac"
-theme.fg_focus      = "#Ba6464"
+theme.fg_normal     = "#7c869a"
+theme.fg_focus      = "#434c5e"
 theme.fg_urgent     = "#E8E3E3"
-theme.fg_minimize   = "#acb0d0"
+theme.fg_minimize   = "#d8dee9"
 
-theme.taglist_fg_focus = "#edb6b4"
-theme.taglist_fg_occupied = "#d48b8a"
-theme.taglist_fg_empty    = "#82343a"
+theme.taglist_fg_focus = "#d8dee9"
+theme.taglist_fg_occupied = "#989ea9"
+theme.taglist_fg_empty    = "#4b5262"
 
 theme.taglist_spacing     = 5
 theme.useless_gap   = 5
@@ -47,9 +47,9 @@ theme.border_width  = 2
 theme.menu_height = 20
 theme.menu_width  = 140
 
-theme.border_normal = "#B66467"
-theme.border_focus  = "#f38ba8"
-theme.border_marked = "#ff7a93"
+theme.border_normal = "#3b4252"
+theme.border_focus  = "#989ea9"
+theme.border_marked = "#d8dee9"
 
 -- Icons Definitions
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"

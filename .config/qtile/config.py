@@ -14,8 +14,9 @@ home = os.path.expanduser('~')
 sup = "mod4"
 alt = "mod1"
 terminal = "alacritty"
-browser = "brave"
+browser = "firefox"
 files = "pcmanfm"
+#colorscheme = "nano"
 
 @hook.subscribe.startup
 def start_once():
@@ -95,7 +96,7 @@ for i in groups:
 
 nano = {
     "Background": "#151515",
-    "Foreground": "#e8e3e3",
+    "Foreground": "#d0acac",
     "Shade1": "#dddada",
     "Shade2": "#aaa0a0",
     "Shade3": "#8d8e92",
@@ -154,105 +155,105 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-screens = [Screen
-           (top=bar.Gap(20)),
-           Screen(top=bar.Gap(20))
-           ]
+#screens = [Screen
+#           (top=bar.Gap(20)),
+#           Screen(top=bar.Gap(20))
+#           ]
 
 
-#def init_widgets_list():
-#    widgets_list = [
-#        widget.CurrentLayoutIcon(),
-#        widget.GroupBox(
-#            padding = 3,
-#        ),
-#        widget.Spacer(),
-#        widget.Clock(
-#            format = " %a, %d %b |  %H:%M"
-#        ),
-#        widget.Spacer(),
-#        widget.TextBox(
-#            text = "",
-#            padding=3,
-#            mouse_callbacks = {
-#                'Button1': lambda: qtile.cmd_spawn("redshift -P -O 4000"),
-#                'Button3': lambda: qtile.cmd_spawn("redshift -x"),
-#            },
-#        ),
-#        widget.Backlight(
-#            backlight_name = "intel_backlight",
-#            padding=3,
-#            format = "{percent:2.0%}",
-#        ),
-##        widget.Sep(),
-#        widget.GenPollText(
-#            update_interval = 5,
-#            func = lambda: subprocess.check_output(home + "/.local/bin/vpn_status").decode("utf-8"),
-#            mouse_callbacks = {
-#                'Button1': lambda: qtile.cmd_spawn("sudo openvpn --bind --cd "+ home + "/docs/VPN' --config 'MGA.ovpn'"),
-#                'Button3': lambda: qtile.cmd_spawn("sudo killall openvpn"), 
-#            },
-#        ),
-##       widget.Sep(),
-#        widget.Wlan(
-#            format = "  {essid}",
-#            interface = "wlan0",
-#            mouse_callbacks = {
-#                'Button1': lambda: qtile.cmd_spawn("wifimenu"),
-#            },
-#        ),
-##        widget.Sep(),
-#        widget.Battery(
-#            format = "{char} {percent:2.0%}",
-#            full_char = ' ',
-#            discharge_char = ' ',
-#            charge_char = '',
-#            emtpy_char = ' ',
-#            unknown_char = ' ',
-#            update_interval = '1',
-#        ),
-##        widget.Sep(),
-#        widget.GenPollText(
-#            update_interval = 3,
-#            func = lambda: subprocess.check_output(home + "/.local/scripts/micstatus").decode("utf-8"),
-#            mouse_callbacks = {
-#                'Button1': lambda: qtile.cmd_spawn("micvolume mute"),
-#                'Button3': lambda: qtile.cmd_spawn("pavucontrol"), 
-#            },
-#        ),
-#        widget.Volume(
-#            emoji = "True",
-#            padding=3,
-#        ),
-#        widget.Volume(
-#            padding=3,
-#            mouse_callbacks = {
-#                'Button3': lambda: qtile.cmd_spawn("pavucontrol"),
-#            },
-#            volume_up_command = 'changevolume up',
-#            volume_down_command = 'changevolume down',
-#            mute_command = 'changevolume mute',
-#        ),
-#    ]
-#
-#    return widgets_list
-#def init_widgets_screen1():
-#    widgets_screen1 = init_widgets_list()
-#    return widgets_screen1
-#    
-#def init_widgets_screen2():
-#    widgets_screen2 = init_widgets_list()
-#    return widgets_screen2 
-#
-#def init_screens():
-#    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.8, size=20)),
-#            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=0.8, size=20))]
-#
-#if __name__ in ["config", "__main__"]:
-#    screens = init_screens()
-#    widgets_list = init_widgets_list()
-#    widgets_screen1 = init_widgets_screen1()
-#    widgets_screen2 = init_widgets_screen2()
+def init_widgets_list():
+    widgets_list = [
+        widget.CurrentLayoutIcon(),
+        widget.GroupBox(
+            padding = 3,
+        ),
+        widget.Spacer(),
+        widget.Clock(
+            format = " %a, %d %b |  %H:%M"
+        ),
+        widget.Spacer(),
+        widget.TextBox(
+            text = "",
+            padding=3,
+            mouse_callbacks = {
+                'Button1': lambda: qtile.cmd_spawn("redshift -P -O 4000"),
+                'Button3': lambda: qtile.cmd_spawn("redshift -x"),
+            },
+        ),
+        widget.Backlight(
+            backlight_name = "intel_backlight",
+            padding=3,
+            format = "{percent:2.0%}",
+        ),
+#        widget.Sep(),
+        widget.GenPollText(
+            update_interval = 5,
+            func = lambda: subprocess.check_output(home + "/.local/bin/vpn_status").decode("utf-8"),
+            mouse_callbacks = {
+                'Button1': lambda: qtile.cmd_spawn("sudo openvpn --bind --cd "+ home + "/docs/VPN' --config 'MGA.ovpn'"),
+                'Button3': lambda: qtile.cmd_spawn("sudo killall openvpn"), 
+            },
+        ),
+#       widget.Sep(),
+        widget.Wlan(
+            format = "  {essid}",
+            interface = "wlan0",
+            mouse_callbacks = {
+                'Button1': lambda: qtile.cmd_spawn("wifimenu"),
+            },
+        ),
+#        widget.Sep(),
+        widget.Battery(
+            format = "{char} {percent:2.0%}",
+            full_char = ' ',
+            discharge_char = ' ',
+            charge_char = '',
+            emtpy_char = ' ',
+            unknown_char = ' ',
+            update_interval = '1',
+        ),
+#        widget.Sep(),
+        widget.GenPollText(
+            update_interval = 3,
+            func = lambda: subprocess.check_output(home + "/.local/scripts/micstatus").decode("utf-8"),
+            mouse_callbacks = {
+                'Button1': lambda: qtile.cmd_spawn("micvolume mute"),
+                'Button3': lambda: qtile.cmd_spawn("pavucontrol"), 
+            },
+        ),
+        widget.Volume(
+            emoji = "True",
+            padding=3,
+        ),
+        widget.Volume(
+            padding=3,
+            mouse_callbacks = {
+                'Button3': lambda: qtile.cmd_spawn("pavucontrol"),
+            },
+            volume_up_command = 'changevolume up',
+            volume_down_command = 'changevolume down',
+            mute_command = 'changevolume mute',
+        ),
+    ]
+
+    return widgets_list
+def init_widgets_screen1():
+    widgets_screen1 = init_widgets_list()
+    return widgets_screen1
+    
+def init_widgets_screen2():
+    widgets_screen2 = init_widgets_list()
+    return widgets_screen2 
+
+def init_screens():
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.8, size=20)),
+            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=0.8, size=20))]
+
+if __name__ in ["config", "__main__"]:
+    screens = init_screens()
+    widgets_list = init_widgets_list()
+    widgets_screen1 = init_widgets_screen1()
+    widgets_screen2 = init_widgets_screen2()
 
 mouse = [
     Drag([sup], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),

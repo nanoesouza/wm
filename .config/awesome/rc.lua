@@ -59,13 +59,12 @@ run_once({ "unclutter -root" }) -- entries must be comma-separated
 
 -- Themes definitions
 local themes = {
-    "default",         -- 1
-    "powerarrow-blue", -- 2
-    "powerarrow",      -- 3
-    "multicolor",      -- 4
+    "default",          -- 1
+    "tokyo",            -- 2
+    "nord",             -- 3
 }
 
-local chosen_theme = themes[1]
+local chosen_theme = themes[3]
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
 
@@ -479,6 +478,7 @@ awful.rules.rules = {
         properties = { 
             floating = true,
             ontop = true,
+            tags = { "1", "2", "3", "4", "5", "7", "8", "9" }
         }
     },
 
@@ -587,19 +587,19 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Appearance Stuff
 beautiful.useless_gap = 5
-beautiful.notification_opacity = '100'
+--beautiful.notification_opacity = '100'
 beautiful.notification_icon_size = 80
 beautiful.notification_bg = '#16161e'
 beautiful.notification_fg = '#acb0d0'
 
 -- Autostart Applications
-awful.spawn.with_shell("killall picom ; picom -f --experimental-backends")
-awful.spawn.with_shell("killall dunst ; dunst")
-awful.spawn.with_shell("setxkbmap br thinkpad")
-awful.spawn.with_shell("libinput-gestures-setup autostart start")
+awful.spawn.with_shell("killall picom ; picom --experimental-backends &")
+awful.spawn.with_shell("killall dunst ; dunst &")
+awful.spawn.with_shell("setxkbmap br thinkpad &")
+awful.spawn.with_shell("libinput-gestures-setup autostart start &")
 awful.spawn.with_shell("rfkill unblock all")
 awful.spawn.with_shell("xsetroot -cursor_name left_ptr")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("~/.local/bin/dualmonitor")
-awful.spawn.with_shell("❯ xinput --set-prop 'pointer:USB Gaming Mouse' 'libinput Accel Profile Enabled' 0 0 &")
+awful.spawn.with_shell("xinput --set-prop 'pointer:USB Gaming Mouse' 'libinput Accel Profile Enabled' 0 0 &")
 awful.spawn.with_shell("xinput --set-prop 'pointer:USB Gaming Mouse' 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1.50 &")

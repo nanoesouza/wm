@@ -49,4 +49,6 @@ elif [ $wm = "awesome" ]; then
     exec awesome
 elif [ $wm = "bspwm" ]; then
     exec bspwm
+elif [ $wm = "i3" ]; then
+    exec i3
 fi
